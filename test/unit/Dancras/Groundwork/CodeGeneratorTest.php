@@ -14,18 +14,18 @@ class CodeGeneratorTest extends PHPUnit_Framework_TestCase
 
     private $templateLoader;
     private $templateCompiler;
-    private $templateWriter;
+    private $fileSystem;
 
     public function setUp()
     {
         $this->templateLoader = Doubles::fromClass(TemplateLoader::FQCN);
         $this->templateCompiler = Doubles::fromClass(TemplateCompiler::FQCN);
-        $this->templateWriter = Doubles::fromClass('\Dancras\Groundwork\TemplateWriter');
+        $this->fileSystem = Doubles::fromClass('\Dancras\Groundwork\FileSystem');
 
         $this->codeGenerator = new CodeGenerator(
             $this->templateLoader,
             $this->templateCompiler,
-            $this->templateWriter
+            $this->fileSystem
         );
     }
 
@@ -45,7 +45,7 @@ class CodeGeneratorTest extends PHPUnit_Framework_TestCase
 
         $this->codeGenerator->createFromTemplate('template', 'path/to/output');
 
-        $this->templateWriter->spy('writeTemplate')->checkArgs('path/to/output', 'compiled contents');
+        $this->fileSystem->spy('writeFile')->checkArgs('path/to/output', 'compiled contents');
     }
 
 }

@@ -11,16 +11,16 @@ class CodeGenerator
 
     private $loader;
     private $compiler;
-    private $writer;
+    private $fileSystem;
 
     public function __construct(
         TemplateLoader $templateLoader,
         TemplateCompiler $templateCompiler,
-        $templateWriter
+        $fileSystem
     ) {
         $this->loader = $templateLoader;
         $this->compiler = $templateCompiler;
-        $this->writer = $templateWriter;
+        $this->fileSystem = $fileSystem;
     }
 
     public function createFromTemplate($template, $path)
@@ -29,6 +29,6 @@ class CodeGenerator
 
         $compiledTemplate = $this->compiler->compile($template);
 
-        $this->writer->writeTemplate($path, $compiledTemplate);
+        $this->fileSystem->writeFile($path, $compiledTemplate);
     }
 }
