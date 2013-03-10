@@ -28,7 +28,7 @@ class PHPInputParser
     public function getRunnerParams()
     {
         return array(
-            'psrPath' => str_replace('\\', '/', $this->input->getArgument('name')) . '.php'
+            'psrPath' => str_replace('\\', '/', $this->input->getArgument('name'))
         );
     }
 

@@ -53,7 +53,7 @@ class PHPInputParserTest extends PHPUnit_Framework_TestCase
 
         $params = $this->parser->getRunnerParams();
 
-        $this->assertSame('MyVendor/MyProject/MyClass.php', $params['psrPath']);
+        $this->assertSame('MyVendor/MyProject/MyClass', $params['psrPath']);
     }
 
 }
