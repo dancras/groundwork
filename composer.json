@@ -1,0 +1,25 @@
+{
+    "name": "dancras/groundwork",
+    "description": "CLI tool for code generation from templates",
+    "keywords": ["CLI", "code generation"],
+    "homepage": "http://dancras.co.uk",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Howlett",
+            "email": "dan@dancras.co.uk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.0",
+        "symfony/console": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "dancras/doubles": "*"
+    },
+    "autoload": {
+        "psr-0": { "Dancras": "src/" }
+    }
+}
