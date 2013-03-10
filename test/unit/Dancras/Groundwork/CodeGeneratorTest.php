@@ -4,6 +4,7 @@ namespace test\unit\Dancras\Groundwork;
 
 use Dancras\Groundwork\CodeGenerator;
 use Dancras\Groundwork\TemplateCompiler;
+use Dancras\Groundwork\TemplateLoader;
 use Doubles\Doubles;
 use PHPUnit_Framework_TestCase;
 
@@ -17,7 +18,7 @@ class CodeGeneratorTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->templateLoader = Doubles::fromClass('\Dancras\Groundwork\TemplateLoader');
+        $this->templateLoader = Doubles::fromClass(TemplateLoader::FQCN);
         $this->templateCompiler = Doubles::fromClass(TemplateCompiler::FQCN);
         $this->templateWriter = Doubles::fromClass('\Dancras\Groundwork\TemplateWriter');
 
