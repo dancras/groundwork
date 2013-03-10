@@ -1,0 +1,23 @@
+<?php
+
+namespace test\unit\%namespace%;
+
+use %namespace%\%className%;
+
+use Doubles\Doubles;
+use PHPUnit_Framework_TestCase;
+
+class %className%Test extends PHPUnit_Framework_TestCase
+{
+    private $subject;
+
+    public function setUp()
+    {
+        $this->subject = new %className%();
+    }
+
+    public function testInstance()
+    {
+        $this->assertInstanceOf('\%namespace%\%className%', $this->subject);
+    }
+}

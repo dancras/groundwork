@@ -1,0 +1,12 @@
+<?php
+
+namespace %namespace%;
+
+class %className%
+{
+    const FQCN = '\%namespace%\%className%';
+
+    public function __construct()
+    {
+    }
+}
