@@ -2,10 +2,13 @@
 
 namespace Dancras\Groundwork;
 
+use Dancras\Groundwork\TemplateCompiler;
 use Symfony\Component\Console\Input\InputInterface;
 
 class PHPInputParser
 {
+    const FQCN = '\Dancras\Groundwork\PHPInputParser';
+
     private $input;
 
     public function __construct(InputInterface $input)
@@ -13,7 +16,7 @@ class PHPInputParser
         $this->input = $input;
     }
 
-    public function prepareCompiler($compiler)
+    public function prepareCompiler(TemplateCompiler $compiler)
     {
         $segments = explode('\\', $this->input->getArgument('name'));
 
