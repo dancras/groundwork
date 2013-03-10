@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+
+$pwd = $_SERVER['PWD'];
+
+require "{$pwd}/vendor/autoload.php";
+
+$application = new Dancras\Groundwork\Application($pwd);
+$application->run();
