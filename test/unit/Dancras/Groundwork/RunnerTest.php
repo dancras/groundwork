@@ -47,11 +47,17 @@ class RunnerTest extends PHPUnit_Framework_TestCase
         $this->assertSame(1, $this->parser->spy('prepareCompiler')->callCount());
     }
 
-    public function testRunExecutesRunFile()
+    public function testRunExecutesAbsolutePathOfRunFile()
     {
+        $this->fileSystem->stub('getAbsolutePath', 'absolute/path.php');
+
         $this->runner->run('my-type');
 
-        $this->assertSame('.groundwork/my-type/run.php', $this->executor->spy('execute')->oneCallArg(0));
+        $this->assertSame(
+            '.groundwork/my-type/run.php',
+            $this->fileSystem->spy('getAbsolutePath')->oneCallArg(0)
+        );
+        $this->assertSame('absolute/path.php', $this->executor->spy('execute')->oneCallArg(0));
     }
 
     public function testRunExecutesRunFileWithParserParams()

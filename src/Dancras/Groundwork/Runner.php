@@ -36,7 +36,10 @@ class Runner
 
         $this->parser->prepareCompiler($compiler);
 
-        $this->executor->execute($runFile, $params);
+        $this->executor->execute(
+            $this->fileSystem->getAbsolutePath($runFile),
+            $params
+        );
     }
 
 }
