@@ -8,8 +8,7 @@ Rather than providing code generation of classes to someone elses standard, grou
 Install with composer.
 
     {
-        "minimum-stability": "dev",
-        "require": {
+        "require-dev": {
             "dancras/groundwork": "*"
         }
     }
