@@ -25,6 +25,10 @@ class CodeGenerator
 
     public function createFromTemplate($template, $path)
     {
+        if ($this->fileSystem->isFile($path)) {
+            return;
+        }
+
         $template = $this->loader->loadTemplate($template);
 
         $compiledTemplate = $this->compiler->compile($template);

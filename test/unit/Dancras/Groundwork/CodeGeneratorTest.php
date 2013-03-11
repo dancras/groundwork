@@ -48,4 +48,14 @@ class CodeGeneratorTest extends PHPUnit_Framework_TestCase
         $this->fileSystem->spy('writeFile')->checkArgs('path/to/output', 'compiled contents');
     }
 
+    public function testCreateFromTemplateDoesNotWriteGivenPathIsAnExistingFile()
+    {
+        $this->fileSystem->stub('isFile', true);
+        $this->templateCompiler->stub('compile', 'compiled contents');
+
+        $this->codeGenerator->createFromTemplate('template', 'path/to/output');
+
+        $this->assertSame(0, $this->fileSystem->spy('writeFile')->callCount());
+    }
+
 }
