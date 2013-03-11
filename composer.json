@@ -10,7 +10,6 @@
             "email": "dan@dancras.co.uk"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.0",
         "symfony/console": "*"
