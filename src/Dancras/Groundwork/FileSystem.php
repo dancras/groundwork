@@ -31,8 +31,11 @@ class FileSystem
     public function writeFile($path, $contents)
     {
         $absolutePath = $this->getAbsolutePath($path);
+        $directoryPath = dirname($absolutePath);
 
-        mkdir(dirname($absolutePath), 0777, true);
+        if (!is_dir($directoryPath)) {
+            mkdir($directoryPath, 0777, true);
+        }
 
         return file_put_contents($absolutePath, $contents);
     }
